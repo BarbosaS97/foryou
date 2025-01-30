@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encontro Surpresa!</title>
+    <style>
+        body {
+            background-color: #ffb3b3;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .button {
+            background-color: #ff0066;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #e6004c;
+        }
+
+        .hidden-text {
+            display: none;
+            font-size: 1.5em;
+            margin-top: 30px;
+            animation: fadeIn 1s ease;
+        }
+
+        .hearts {
+            font-size: 3em;
+            animation: pulse 1.5s infinite;
+        }
+
+        .flowers {
+            font-size: 2em;
+            animation: flower 3s ease-in-out infinite;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        @keyframes flower {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(360deg); }
+            100% { transform: rotate(0deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Lanna, você está a um clique de saber algo incrível!</h1>
+
+    <!-- Primeira parte -->
+    <button class="button" onclick="showFirst()">Clique aqui para descobrir!</button>
+
+    <div id="surprise1" class="hidden-text">
+        <p>Ah, você clicou! Prepare-se... 💘</p>
+        <div class="hearts">💖💖💖</div>
+        <div class="flowers">🌸🌼🌸</div>
+        <button class="button" onclick="showSecond()">Clique para ver mais!</button>
+    </div>
+
+    <!-- Segunda parte -->
+    <div id="surprise2" class="hidden-text">
+        <p><em>"Eu sou a pessoa que você estava procurando!"</em></p>
+        <div class="hearts">💘💘💘</div>
+        <div class="flowers">🌷🌹🌻</div>
+    </div>
+
+    <script>
+        function showFirst() {
+            document.querySelector('h1').style.display = 'none';  // Remove o título inicial
+            document.querySelector('.button').style.display = 'none';  // Remove o primeiro botão
+            document.getElementById('surprise1').style.display = 'block';  // Exibe a primeira surpresa
+        }
+
+        function showSecond() {
+            document.getElementById('surprise1').style.display = 'none';  // Remove a primeira surpresa
+            document.getElementById('surprise2').style.display = 'block';  // Exibe a segunda surpresa
+        }
+    </script>
+
+</body>
+</html>
